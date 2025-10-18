@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880F3B072EA4340200B693A1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880F3B062EA4340200B693A1 /* ListView.swift */; };
 		888CD1432EA2EDE900AA686B /* SnacktacularApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888CD1422EA2EDE900AA686B /* SnacktacularApp.swift */; };
 		888CD1452EA2EDE900AA686B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888CD1442EA2EDE900AA686B /* LoginView.swift */; };
 		888CD1472EA2EDEB00AA686B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888CD1462EA2EDEB00AA686B /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		880F3B062EA4340200B693A1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		888CD13F2EA2EDE900AA686B /* Snacktacular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snacktacular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		888CD1422EA2EDE900AA686B /* SnacktacularApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnacktacularApp.swift; sourceTree = "<group>"; };
 		888CD1442EA2EDE900AA686B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -60,11 +62,12 @@
 		888CD1412EA2EDE900AA686B /* Snacktacular */ = {
 			isa = PBXGroup;
 			children = (
-				888CD1502EA2EE8D00AA686B /* Info.plist */,
 				888CD1422EA2EDE900AA686B /* SnacktacularApp.swift */,
 				888CD1442EA2EDE900AA686B /* LoginView.swift */,
+				880F3B062EA4340200B693A1 /* ListView.swift */,
 				888CD1462EA2EDEB00AA686B /* Assets.xcassets */,
 				888CD1582EA2FDAC00AA686B /* GoogleService-Info.plist */,
+				888CD1502EA2EE8D00AA686B /* Info.plist */,
 				888CD1482EA2EDEB00AA686B /* Preview Content */,
 			);
 			path = Snacktacular;
@@ -159,6 +162,7 @@
 			files = (
 				888CD1452EA2EDE900AA686B /* LoginView.swift in Sources */,
 				888CD1432EA2EDE900AA686B /* SnacktacularApp.swift in Sources */,
+				880F3B072EA4340200B693A1 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
