@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		880F3B072EA4340200B693A1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880F3B062EA4340200B693A1 /* ListView.swift */; };
+		880F3B0A2EA43D2F00B693A1 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880F3B092EA43D2F00B693A1 /* Spot.swift */; };
+		880F3B0D2EA43D9800B693A1 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880F3B0C2EA43D9800B693A1 /* SpotViewModel.swift */; };
+		880F3B102EA43E1E00B693A1 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880F3B0F2EA43E1E00B693A1 /* SpotDetailView.swift */; };
 		888CD1432EA2EDE900AA686B /* SnacktacularApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888CD1422EA2EDE900AA686B /* SnacktacularApp.swift */; };
 		888CD1452EA2EDE900AA686B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888CD1442EA2EDE900AA686B /* LoginView.swift */; };
 		888CD1472EA2EDEB00AA686B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888CD1462EA2EDEB00AA686B /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		880F3B062EA4340200B693A1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		880F3B092EA43D2F00B693A1 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		880F3B0C2EA43D9800B693A1 /* SpotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
+		880F3B0F2EA43E1E00B693A1 /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 		888CD13F2EA2EDE900AA686B /* Snacktacular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snacktacular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		888CD1422EA2EDE900AA686B /* SnacktacularApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnacktacularApp.swift; sourceTree = "<group>"; };
 		888CD1442EA2EDE900AA686B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -43,6 +49,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		880F3B082EA43D1800B693A1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				888CD1442EA2EDE900AA686B /* LoginView.swift */,
+				880F3B062EA4340200B693A1 /* ListView.swift */,
+				880F3B0F2EA43E1E00B693A1 /* SpotDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		880F3B0B2EA43D3600B693A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				880F3B092EA43D2F00B693A1 /* Spot.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		880F3B0E2EA43DA100B693A1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				880F3B0C2EA43D9800B693A1 /* SpotViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		888CD1362EA2EDE900AA686B = {
 			isa = PBXGroup;
 			children = (
@@ -63,8 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				888CD1422EA2EDE900AA686B /* SnacktacularApp.swift */,
-				888CD1442EA2EDE900AA686B /* LoginView.swift */,
-				880F3B062EA4340200B693A1 /* ListView.swift */,
+				880F3B0B2EA43D3600B693A1 /* Models */,
+				880F3B0E2EA43DA100B693A1 /* ViewModels */,
+				880F3B082EA43D1800B693A1 /* Views */,
 				888CD1462EA2EDEB00AA686B /* Assets.xcassets */,
 				888CD1582EA2FDAC00AA686B /* GoogleService-Info.plist */,
 				888CD1502EA2EE8D00AA686B /* Info.plist */,
@@ -161,8 +194,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				888CD1452EA2EDE900AA686B /* LoginView.swift in Sources */,
+				880F3B0D2EA43D9800B693A1 /* SpotViewModel.swift in Sources */,
 				888CD1432EA2EDE900AA686B /* SnacktacularApp.swift in Sources */,
+				880F3B102EA43E1E00B693A1 /* SpotDetailView.swift in Sources */,
 				880F3B072EA4340200B693A1 /* ListView.swift in Sources */,
+				880F3B0A2EA43D2F00B693A1 /* Spot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
