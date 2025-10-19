@@ -12,26 +12,26 @@ import FirebaseFirestore
 class SpotViewModel {
     var spot = Spot()
     
-    static func saveSpot(spot: Spot) -> Bool {
+    static func saveSpot(spot: Spot) async -> String? { // nil is effort failed, otherwise return spot.id
         let db = Firestore.firestore()
         
         if let id = spot.id { // spot must already exist, so save
             do {
                 try db.collection("spots").document(id).setData(from: spot)
                 print("Data updated sucessfully")
-                return true
+                return id
             } catch {
                 print("ERROR: Could not update data in 'spots' \(error.localizedDescription)")
-                return false
+                return id
             }
         } else {
             do {
-                try db.collection("spots").addDocument(from: spot)
+                let docRef = try db.collection("spots").addDocument(from: spot)
                 print("Data added successfully")
-                return true
+                return docRef.documentID
             } catch {
                 print("ERROR: Could not create a new spot in 'spots' \(error.localizedDescription)")
-                return false
+                return nil
             }
         }
     }
