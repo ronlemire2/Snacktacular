@@ -27,6 +27,9 @@ struct PhotoView: View {
             
             Spacer()
             
+            TextField("description", text: $photo.description)
+                .textFieldStyle(.roundedBorder)
+            
             Text("by: \(photo.reviewer), on: \(photo.postedOn.formatted(date: .numeric, time: .omitted))")
             
                 .toolbar {
