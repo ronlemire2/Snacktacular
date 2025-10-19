@@ -14,6 +14,16 @@ struct Spot: Identifiable, Codable {
     var address = ""
 }
 
+extension Spot {
+    static var preview: Spot {
+        let newSpot = Spot(id: "1", name: "Boston Public Market", address: "Boston, MA")
+        return newSpot
+    }
+}
+
+
+
+
 /*
  var coordinate: CLLocationCoordinate2D
  var averageRating: Double
