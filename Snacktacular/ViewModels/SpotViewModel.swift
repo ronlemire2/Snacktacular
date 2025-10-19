@@ -12,7 +12,7 @@ import FirebaseFirestore
 class SpotViewModel {
     var spot = Spot()
     
-    func saveSpot(spot: Spot) -> Bool {
+    static func saveSpot(spot: Spot) -> Bool {
         let db = Firestore.firestore()
         
         if let id = spot.id { // spot must already exist, so save
@@ -36,7 +36,19 @@ class SpotViewModel {
         }
     }
     
-    func deleteSpot(spot: Spot) {
+    static func deleteSpot(spot: Spot) {
+        let db = Firestore.firestore()
+        guard let id = spot.id else {
+            print("No spot.id")
+            return
+        }
         
+        Task {
+            do {
+                try await db.collection("spots").document(id).delete()
+            } catch {
+                print("ERROR: Could not delete document \(id). \(error.localizedDescription)")
+            }
+        }
     }
 }

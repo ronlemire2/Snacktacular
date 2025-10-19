@@ -24,6 +24,12 @@ struct ListView: View {
                     Text(spot.name)
                         .font(.title2)
                 }
+                .swipeActions {
+                    Button("Delete", role: .destructive) {
+                        SpotViewModel.deleteSpot(spot: spot)
+                    }
+
+                }
             }
 
             .listStyle(.plain)
