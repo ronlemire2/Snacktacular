@@ -11,10 +11,13 @@ import FirebaseFirestore
 
 struct SpotDetailView: View {
     @FirestoreQuery(collectionPath: "spots") var fsPhotos: [Photo]
+    // The variable below doesn't have the right path. We'll change this in .onAppear.
+    @FirestoreQuery(collectionPath: "spots") var reviews: [Review]
     @State var spot: Spot  // pass in value from ListView
     @State private var photoSheetIsPresented = false
     @State private var showingAlert = false // Alert user if they need to save Spot before adding a Photo
     @State private var alertMessage = "Cannot add a Phot until you save the Spot."
+    @State private var showReviewViewSheet = false
     @Environment(\.dismiss) private var dismiss
     private var photos: [Photo] {
         // If running in Preview then show mock data
@@ -24,6 +27,7 @@ struct SpotDetailView: View {
         // Else show Firebase Data
         return fsPhotos
     }
+    var previewRunning = false
      
     var body: some View {
         VStack {
@@ -76,11 +80,73 @@ struct SpotDetailView: View {
             }
             .frame(height: 80)
             
+            Text("< Map goes here >")
+                .font(.largeTitle)
+                .fontWeight(.black)
+                .foregroundStyle(.red)
+                .frame(height:150)
+                .frame(maxWidth: .infinity)
+                .background(Color.cyan)
+                .padding(.horizontal)
+            
+            List {
+                Section {
+                    ForEach(reviews) { review in
+                        NavigationLink {
+                            ReviewView(spot: spot, review: review)
+                        } label: {
+                            Text(review.title) //TODO: Build a custom cell showing stars, title, and body
+                        }
+                    }
+                } header: {
+                    HStack {
+                        Text("Avg. Rating:")
+                            .font(.title2)
+                            .bold()
+                        Text("4.5") //TODO: Change to a computer property
+                            .font(.title)
+                            .fontWeight(.black)
+                            .foregroundStyle(Color("SnackColor"))
+                        Spacer()
+                        Button("Rate It") {
+                            showReviewViewSheet.toggle()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .bold()
+                        .tint(Color("SnackColor"))
+                    }
+                }
+                .headerProminence(.increased)
+            }
+            .listStyle(.plain)
+            
             Spacer()
+        }
+        .sheet(isPresented: $showReviewViewSheet, content: {
+            NavigationStack {
+                ReviewView(spot: spot, review: Review())
+            }
+        })
+        .onAppear() { // This is to prevent PreviewProvider error!
+            // Gallaugher' preview was crashing so he created 'previewRunning' switch to get around it.
+            if !previewRunning {
+                //TODO: replace spot.id with guard let spotID
+                /*
+                 guard let spotID = spot.id else {
+                    print("ERROR: spot.id = nil")
+                 */
+                $reviews.path = "spots/\(spot.id ?? "abc")/reviews" //TODO: replace with guard let
+                print("reviews.path = \($reviews.path)")
+            }
         }
         .navigationBarBackButtonHidden()
         .task {
-            $fsPhotos.path = "spots/\(spot.id ?? "")/photos"
+            //TODO: replace spot.id with guard let spotID
+            /*
+             guard let spotID = spot.id else {
+                print("ERROR: spot.id = nil")
+             */
+            $fsPhotos.path = "spots/\(spot.id ?? "xyz")/photos"
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -130,6 +196,6 @@ struct SpotDetailView: View {
 
 #Preview {
     NavigationStack {
-        SpotDetailView(spot: Spot.preview)
+        SpotDetailView(spot: Spot.preview, previewRunning: true)
     }
 }

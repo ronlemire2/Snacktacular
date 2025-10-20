@@ -31,7 +31,7 @@ struct ReviewView: View {
                 .bold()
             
             HStack {
-                StarsSelectionView(rating: review.rating)
+                StarsSelectionView(rating: $review.rating)
                     .overlay {
                         RoundedRectangle(cornerRadius: 5)
                             .stroke(.gray.opacity(0.5), lineWidth: 2)
@@ -74,8 +74,14 @@ struct ReviewView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Save") {
-                    //TODO: Add save code here
-                    dismiss()
+                    Task {
+                        let success = await ReviewViewModel.saveReview(spot: spot, review: review)
+                        if success {
+                            dismiss()
+                        } else {
+                            print("ERROR saving data in ReviewView")
+                        }
+                    }
                 }
             }
         }
